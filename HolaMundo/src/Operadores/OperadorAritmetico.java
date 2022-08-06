@@ -1,3 +1,5 @@
+package Operadores;
+
 import javax.swing.*;
 
 public class OperadorAritmetico {
