@@ -21,7 +21,7 @@ public class NombreMasLargo {
         } else if (nombre3.length() > nombre1.length() && nombre3.length() > nombre2.length()) {
             System.out.println(nombre3.concat(" tiene el nombre mas largo "));
         }
-        
+
 
         String nombreMax = ( nombre1.length() < nombre2.length() ) ?
                 nombre1  : nombre2;
