@@ -19,7 +19,7 @@ public class WrapperOperadoresRelacionales {
         System.out.println("num2 = " + num2);
 
 
-        // compara la instancia y no el valor de la variable
+        // compara la instancia (la referencia) y no el valor de la variable
         System.out.println("Son el mismo Objeto?  "  +  (num1 == num2));
 
 
