@@ -5,16 +5,16 @@ public class EjemploAutomovil {
 
         Automovil subaru = new Automovil();
 
-        subaru.fabricante = "Honda Civic";
-        subaru.modelo = "Impresa";
-        subaru.cilindrada = 2.0;
-        subaru.color = "Rojo";
+        subaru.asignarFabricante("Honda Civic");
+        subaru.asignarModelo("Impresa");
+        subaru.asignarCilindrada(2.0);
+        subaru.asignarColor("Rojo");
 
         Automovil mazda = new Automovil();
-        mazda.fabricante = "Mazda";
-        mazda.modelo = "BT-50";
-        mazda.cilindrada = 3.0;
-        mazda.color = "Rojo";
+        mazda.asignarFabricante("Mazda");
+        mazda.asignarModelo("BT-50");
+        mazda.asignarCilindrada(3.0);
+        mazda.asignarColor("Rojo");
 
         System.out.println(subaru.verDetalle());
         System.out.println(mazda.verDetalle());
