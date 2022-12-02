@@ -4,6 +4,7 @@ import javax.swing.text.DefaultStyledDocument;
 
 public class Automovil {
 
+    private int id;
     private String fabricante;
     private String modelo;
     private String color = "Gris";
@@ -12,12 +13,14 @@ public class Automovil {
 
     private static String colorPatente = "Naranja";
     private static int capacidadEstanqueEstatico = 30;
+    private static int ultimoId;
 
     public Automovil(){
-
+        this.id =  ++ultimoId; // conserva el ultimo id de la instancia
     }
 
     public Automovil(String fabricante, String modelo){
+        this(); // asigna el id
         this.fabricante = fabricante;
         this.modelo = modelo;
     }
@@ -36,6 +39,14 @@ public class Automovil {
     public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadEstanque) {
         this(fabricante, modelo, color, cilindrada); // llama al constructor que tiene esos 4 argumentos
         this.capacidadEstanque = capacidadEstanque;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFabricante() {
@@ -78,6 +89,14 @@ public class Automovil {
         this.capacidadEstanque = capacidadEstanque;
     }
 
+    public static int getCapacidadEstanqueEstatico() {
+        return capacidadEstanqueEstatico;
+    }
+
+    public static void setCapacidadEstanqueEstatico(int capacidadEstanqueEstatico) {
+        Automovil.capacidadEstanqueEstatico = capacidadEstanqueEstatico;
+    }
+
     public static String getColorPatente(){
         return colorPatente;
     }
@@ -88,7 +107,8 @@ public class Automovil {
 
     // Métodos
     public String verDetalle(){
-        return  "\nauto.fabricante = " + this.getFabricante() +
+        return  "auto.id = " + this.id +
+                "\nauto.fabricante = " + this.getFabricante() +
                 "\nauto.modelo = " + this.getModelo() +
                 "\nauto.color = " + this.getColor() +
                 "\nauto.patenteColor = " + colorPatente +
@@ -142,6 +162,6 @@ public class Automovil {
 
     @Override
     public String toString() {
-        return fabricante + " " + modelo;
+        return this.id + " : " + fabricante + " " + modelo;
     }
 }
