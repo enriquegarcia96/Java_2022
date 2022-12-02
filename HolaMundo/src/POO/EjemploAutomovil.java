@@ -3,18 +3,17 @@ package POO;
 public class EjemploAutomovil {
     public static void main(String[] args) {
 
-        Automovil subaru = new Automovil();
+        Automovil subaru = new Automovil("Honda Civic","Impresa");
 
-        subaru.setFabricante("Honda Civic");
-        subaru.setModelo("Impresa");
         subaru.setCilindrada(2.0);
         subaru.setColor("Rojo");
 
-        Automovil mazda = new Automovil();
-        mazda.setFabricante("Mazda");
-        mazda.setModelo("BT-50");
+        Automovil mazda = new Automovil("Mazda","BT-50");
+
         mazda.setCilindrada(3.0);
         mazda.setColor("Rojo");
+
+        Automovil nissan = new Automovil();
 
         System.out.println(subaru.verDetalle());
         System.out.println(mazda.verDetalle());
