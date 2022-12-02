@@ -105,4 +105,33 @@ public class Automovil {
         return km/(this.capacidadEstanque*(porcentajeBencina/100f));
     }
 
+
+    // polimorfismo  - sobreescritura de metodos
+    // configuro el metodo para poder comparar los objetos
+    @Override
+    public boolean equals(Object obj) {
+
+        if(this == obj) return true;
+
+        if(!(obj instanceof  Automovil)){
+            return  false;
+        }
+
+        Automovil a = (Automovil) obj;
+        return ( this.fabricante != null  && this.modelo != null
+                && this.fabricante.equals(a.getFabricante())
+                && this.modelo.equals(a.getModelo()));
+    }
+
+
+    @Override
+    public String toString() {
+        return "Automovil{" +
+                "fabricante='" + fabricante + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", color='" + color + '\'' +
+                ", cilindrada=" + cilindrada +
+                ", capacidadEstanque=" + capacidadEstanque +
+                '}';
+    }
 }
