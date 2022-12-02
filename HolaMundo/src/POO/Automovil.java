@@ -10,6 +10,9 @@ public class Automovil {
     private double cilindrada;
     private int capacidadEstanque = 40;
 
+    private static String colorPatente = "Naranja";
+    private static int capacidadEstanqueEstatico = 30;
+
     public Automovil(){
 
     }
@@ -75,11 +78,20 @@ public class Automovil {
         this.capacidadEstanque = capacidadEstanque;
     }
 
+    public static String getColorPatente(){
+        return colorPatente;
+    }
+
+    public static void setColorPatente(String colorPatente){
+        Automovil.colorPatente = colorPatente;
+    }
+
     // Métodos
     public String verDetalle(){
         return  "\nauto.fabricante = " + this.getFabricante() +
                 "\nauto.modelo = " + this.getModelo() +
-                "\nauto.color = " + this.getModelo() +
+                "\nauto.color = " + this.getColor() +
+                "\nauto.patenteColor = " + colorPatente +
                 "\nauto.cilindrada = " + this.getCilindrada();
     }
 
@@ -105,6 +117,10 @@ public class Automovil {
         return km/(this.capacidadEstanque*(porcentajeBencina/100f));
     }
 
+    public static float calcularConsumoEstatico(int km, int porcentajeBencina){
+        return km/(Automovil.capacidadEstanqueEstatico*(porcentajeBencina/100f));
+    }
+
 
     // polimorfismo  - sobreescritura de metodos
     // configuro el metodo para poder comparar los objetos
@@ -126,12 +142,6 @@ public class Automovil {
 
     @Override
     public String toString() {
-        return "Automovil{" +
-                "fabricante='" + fabricante + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", color='" + color + '\'' +
-                ", cilindrada=" + cilindrada +
-                ", capacidadEstanque=" + capacidadEstanque +
-                '}';
+        return fabricante + " " + modelo;
     }
 }
