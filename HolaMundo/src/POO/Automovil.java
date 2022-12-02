@@ -1,5 +1,7 @@
 package POO;
 
+import javax.swing.text.DefaultStyledDocument;
+
 public class Automovil {
 
     private String fabricante;
@@ -17,6 +19,21 @@ public class Automovil {
         this.modelo = modelo;
     }
 
+    public Automovil(String fabricante, String modelo, String color){
+        this(fabricante, modelo); // llama al constructor que tiene esta cantidad de argumentos
+        this.color = color;
+    }
+
+    public Automovil(String fabricante, String modelo, String color, double cilindrada) {
+        this(fabricante, modelo, color);
+        this.cilindrada = cilindrada;
+    }
+
+
+    public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadEstanque) {
+        this(fabricante, modelo, color, cilindrada); // llama al constructor que tiene esos 4 argumentos
+        this.capacidadEstanque = capacidadEstanque;
+    }
 
     public String getFabricante() {
         return fabricante;
