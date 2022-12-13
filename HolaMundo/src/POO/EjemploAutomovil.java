@@ -11,15 +11,15 @@ public class EjemploAutomovil {
         Date fecha = new Date();
 
         subaru.setCilindrada(2.0);
-        subaru.setColor("Rojo");
+        subaru.setColor(Color.BLANCO);
 
-        Automovil mazda = new Automovil("Mazda","BT-50","Rojo",3.0);
+        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,3.0);
 
 
 
-        Automovil nissan = new Automovil("Nissan", "Navara", "Gris", 3.5, 50);
+        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS, 3.5, 50);
 
-        Automovil nissan2 = new Automovil("Nissan", "Navara", "Gris", 3.5, 50);
+        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.GRIS, 3.5, 50);
 
         Automovil auto = new Automovil();
 
