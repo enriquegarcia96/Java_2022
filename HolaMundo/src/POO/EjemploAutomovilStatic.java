@@ -1,6 +1,7 @@
 package POO;
 
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicMarkableReference;
 
 public class EjemploAutomovilStatic {
     public static void main(String[] args) {
@@ -32,6 +33,8 @@ public class EjemploAutomovilStatic {
         System.out.println("Kilometros por litros = " + Automovil.calcularConsumoEstatico(300, 60));
 
 
+        System.out.println("Velocidad maxima carretera:  "  + Automovil.VELOCIDAD_MAX_CARRETERA);
+        System.out.println("Velocidad maxima ciudad:  "  + Automovil.VELOCIDAD_MAX_CIUDAD);
 
     }
 }
