@@ -1,5 +1,6 @@
 package POO;
 
+import javax.swing.text.DefaultStyledDocument;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicMarkableReference;
 
@@ -10,15 +11,15 @@ public class EjemploAutomovilStatic {
         Automovil subaru = new Automovil("Honda Civic","Impresa");
 
         subaru.setCilindrada(2.0);
-        subaru.setColor("Rojo");
+        subaru.setColor(Automovil.COLOR_BLANCO);
 
-        Automovil mazda = new Automovil("Mazda","BT-50","Rojo",3.0);
+        Automovil mazda = new Automovil("Mazda","BT-50",Automovil.COLOR_ROJO,3.0);
         System.out.println("manzda.fabricante = " +  mazda.getFabricante());
 
-        Automovil nissan = new Automovil("Nissan", "Navara", "Gris", 3.5, 50);
-        Automovil nissan2 = new Automovil("Nissan", "Navara", "Gris", 3.5, 50);
-        nissan2.setColor("Amarillo");
-        Automovil.setColorPatente("Azul");
+        Automovil nissan = new Automovil("Nissan", "Navara", Automovil.COLOR_GRIS, 3.5, 50);
+        Automovil nissan2 = new Automovil("Nissan", "Navara", Automovil.COLOR_GRIS, 3.5, 50);
+        nissan2.setColor(Automovil.COLOR_AMARILLO);
+        Automovil.setColorPatente(Automovil.COLOR_AZUL);
 
         Automovil auto = new Automovil();
 
