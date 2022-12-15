@@ -7,19 +7,21 @@ import java.util.Stack;
 public class EjemploAutomovil {
     public static void main(String[] args) {
 
-        Automovil subaru = new Automovil("Honda Civic","Impresa");
-        Date fecha = new Date();
+        Motor motorSubaru = new Motor(2.0, TipoMotor.BENCINA);
 
-        subaru.setCilindrada(2.0);
+        Automovil subaru = new Automovil("Honda Civic","Impresa");
+        subaru.setEstanque(new Estanque());
+        subaru.setMotor(motorSubaru);
         subaru.setColor(Color.BLANCO);
 
-        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,3.0);
+        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,new Motor(3.0, TipoMotor.DIESEL));
+        mazda.setEstanque(new Estanque(45));
+        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS, new Motor(4.0, TipoMotor.DIESEL),
+                new Estanque(50));
 
+        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.GRIS, new Motor(3.5, TipoMotor.DIESEL),
+                new Estanque(50));
 
-
-        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS, 3.5, 50);
-
-        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.GRIS, 3.5, 50);
 
         Automovil auto = new Automovil();
 
@@ -31,7 +33,6 @@ public class EjemploAutomovil {
         System.out.println( nissan.verDetalle());
 
         System.out.println("================================");
-        System.out.println(auto.equals(fecha));
         System.out.println(nissan);
         System.out.println(nissan.toString());
 
