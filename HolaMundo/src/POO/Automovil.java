@@ -20,7 +20,7 @@ public class Automovil {
     private static int ultimoId;
 
     public static final Integer VELOCIDAD_MAX_CARRETERA = 120;
-    public static  final int VELOCIDAD_MAX_CIUDAD = 60;
+    public static final int VELOCIDAD_MAX_CIUDAD = 60;
 
     public static final String COLOR_ROJO = "Rojo";
     public static final String COLOR_AMARILLO = "Amarillo";
@@ -29,17 +29,17 @@ public class Automovil {
     public static final String COLOR_GRIS = "Gris Oscuro";
 
 
-    public Automovil(){
-        this.id =  ++ultimoId; // conserva el ultimo id de la instancia
+    public Automovil() {
+        this.id = ++ultimoId; // conserva el ultimo id de la instancia
     }
 
-    public Automovil(String fabricante, String modelo){
+    public Automovil(String fabricante, String modelo) {
         this(); // asigna el id
         this.fabricante = fabricante;
         this.modelo = modelo;
     }
 
-    public Automovil(String fabricante, String modelo, Color color){
+    public Automovil(String fabricante, String modelo, Color color) {
         this(fabricante, modelo); // llama al constructor que tiene esta cantidad de argumentos
         this.color = color;
     }
@@ -102,11 +102,11 @@ public class Automovil {
         Automovil.capacidadEstanqueEstatico = capacidadEstanqueEstatico;
     }
 
-    public static Color getColorPatente(){
+    public static Color getColorPatente() {
         return colorPatente;
     }
 
-    public static void setColorPatente(Color colorPatente){
+    public static void setColorPatente(Color colorPatente) {
         Automovil.colorPatente = colorPatente;
     }
 
@@ -127,6 +127,9 @@ public class Automovil {
     }
 
     public Estanque getEstanque() {
+        if(estanque == null){
+            this.estanque = new Estanque();
+        }
         return estanque;
     }
 
@@ -151,40 +154,48 @@ public class Automovil {
     }
 
     // Métodos
-    public String verDetalle(){
-        return  "auto.id = " + this.id +
+    public String verDetalle() {
+        String detalle = "auto.id = " + this.id +
                 "\nauto.fabricante = " + this.getFabricante() +
-                "\nauto.modelo = " + this.getModelo() +
-                "\nauto.tipo = " + this.getTipo().getDescripcion() +
-                "\nauto.color = " + this.color +
-                "\nauto.patenteColor = " + colorPatente +
-                "\nauto.cilindrada = " + this.motor.getCilindrada();
+                "\nauto.modelo = " + this.getModelo();
+
+        if (this.getTipo() != null) {
+            detalle += "\nauto.tipo = " + this.getTipo().getDescripcion();
+        }
+
+        detalle += "\nauto.color = " + this.color +
+                "\nauto.patenteColor = " + colorPatente;
+        if(this.getMotor() != null){
+            detalle +=  "\nauto.cilindrada = " + this.motor.getCilindrada();
+        }
+
+        return detalle;
     }
 
-    public String acelerar(int rpm){
+    public String acelerar(int rpm) {
         return "el auto " + this.fabricante + " acelerando a " + rpm + " rpm";
     }
 
-    public String frenar (){
+    public String frenar() {
         return this.fabricante + " " + this.modelo + " frenando!!";
     }
 
-    public String acelerarFrenar(int rpm){
+    public String acelerarFrenar(int rpm) {
         String acelerar = this.acelerar(rpm);
         String frenar = this.frenar();
         return acelerar + "\n" + frenar;
     }
 
-    public float calcularConsumo(int km, float porcentajeBencina){
-        return km/(estanque.getCapacidad()*porcentajeBencina);
+    public float calcularConsumo(int km, float porcentajeBencina) {
+        return km / (this.getEstanque().getCapacidad() * porcentajeBencina);
     }
 
-    public float calcularConsumo(int km, int porcentajeBencina){
-        return km/(estanque.getCapacidad()*(porcentajeBencina/100f));
+    public float calcularConsumo(int km, int porcentajeBencina) {
+        return km / (this.getEstanque().getCapacidad() * (porcentajeBencina / 100f));
     }
 
-    public static float calcularConsumoEstatico(int km, int porcentajeBencina){
-        return km/(Automovil.capacidadEstanqueEstatico*(porcentajeBencina/100f));
+    public static float calcularConsumoEstatico(int km, int porcentajeBencina) {
+        return km / (Automovil.capacidadEstanqueEstatico * (porcentajeBencina / 100f));
     }
 
 
@@ -193,14 +204,14 @@ public class Automovil {
     @Override
     public boolean equals(Object obj) {
 
-        if(this == obj) return true;
+        if (this == obj) return true;
 
-        if(!(obj instanceof  Automovil)){
-            return  false;
+        if (!(obj instanceof Automovil)) {
+            return false;
         }
 
         Automovil a = (Automovil) obj;
-        return ( this.fabricante != null  && this.modelo != null
+        return (this.fabricante != null && this.modelo != null
                 && this.fabricante.equals(a.getFabricante())
                 && this.modelo.equals(a.getModelo()));
     }

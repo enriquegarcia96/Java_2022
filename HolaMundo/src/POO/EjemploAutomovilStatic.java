@@ -17,6 +17,7 @@ public class EjemploAutomovilStatic {
         Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS,
                 new Motor(4.0, TipoMotor.DIESEL), new Estanque(50));
         nissan.setTipo(TipoAutomovil.PICKUP);
+        //mazda.setEstanque(new Estanque());
 
         Automovil nissan2 = new Automovil("Nissan", "Navara",
                 Color.GRIS, new Motor(3.5, TipoMotor.BENCINA), new Estanque(50));
@@ -43,5 +44,8 @@ public class EjemploAutomovilStatic {
         TipoAutomovil tipoAutomovil = subaru.getTipo();
         System.out.println("tipoAutomovil.getNombre() = " + tipoAutomovil.getNombre());
         System.out.println("tipoAutomovil.getDescripcion() = " + tipoAutomovil.getDescripcion());
+
+        System.out.println(mazda.calcularConsumo(300, 70));
+
     }
 }
