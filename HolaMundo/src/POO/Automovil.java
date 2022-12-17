@@ -12,6 +12,7 @@ public class Automovil {
     private Estanque estanque;
     private Persona conductor;
     private Rueda[] ruedas;
+    private int indiceRuedas;
 
     private TipoAutomovil tipo;
 
@@ -31,6 +32,7 @@ public class Automovil {
 
     public Automovil() {
         this.id = ++ultimoId; // conserva el ultimo id de la instancia
+        this.ruedas = new Rueda[5]; // inicializo las ruedas
     }
 
     public Automovil(String fabricante, String modelo) {
@@ -151,6 +153,15 @@ public class Automovil {
 
     public void setRuedas(Rueda[] ruedas) {
         this.ruedas = ruedas;
+    }
+
+    public Automovil addRueda(Rueda rueda){
+        if(indiceRuedas < this.ruedas.length){
+            this.ruedas[indiceRuedas++] = rueda;
+        }
+        // es para retornar la misma instancia del objeto
+        //para que pueda invicar los metodos de los objetos
+        return this;
     }
 
     // Métodos

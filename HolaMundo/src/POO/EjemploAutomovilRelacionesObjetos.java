@@ -2,13 +2,6 @@ package POO;
 public class EjemploAutomovilRelacionesObjetos {
     public static void main(String[] args) {
 
-        Rueda[] ruedasSub = new Rueda[5];
-        ruedasSub[0] = new Rueda("Yokohama", 16, 7.5);
-        ruedasSub[1] = new Rueda("Yokohama", 16, 7.5);
-        ruedasSub[2] = new Rueda("Yokohama", 16, 7.5);
-        ruedasSub[3] = new Rueda("Yokohama", 16, 7.5);
-        ruedasSub[4] = new Rueda("Yokohama", 16, 7.5);
-
         Persona conductorSubaru = new Persona("Luci", "Gonzales");
         Automovil subaru = new Automovil("Honda Civic","Impresa");
         subaru.setMotor(new Motor(2.0, TipoMotor.BENCINA));
@@ -16,34 +9,41 @@ public class EjemploAutomovilRelacionesObjetos {
         subaru.setColor(Color.BLANCO);
         subaru.setTipo(TipoAutomovil.HATCHBACK);
         subaru.setConductor(conductorSubaru);
-        subaru.setRuedas(ruedasSub);
+        //subaru.setRuedas(ruedasSub);
+        Rueda[] ruedasSub = new Rueda[5];
+        for(int i = 0; i< ruedasSub.length; i++){
+            // agregamos cada rueda
+           subaru.addRueda(new Rueda("Yokohama", 16, 7.5));
+        }
 
 
-
-        Rueda[] ruedasMaz = {new Rueda("Michelin", 18, 10.5),
-                new Rueda("Michelin", 18, 10.5),
-                new Rueda("Michelin", 18, 10.5),
-                new Rueda("Michelin", 18, 10.5),
-                new Rueda("Michelin", 18, 10.5)
-        };
         Persona pato = new Persona("Andrea", "Caceres");
         Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,new Motor(3.0, TipoMotor.DIESEL) );
         mazda.setTipo(TipoAutomovil.PICKUP);
         mazda.setEstanque(new Estanque());
         mazda.setConductor(pato);
-        mazda.setRuedas(ruedasMaz);
+        //mazda.setRuedas(ruedasMaz);
+        Rueda[] ruedasMaz = new Rueda[5];
+        for (int i = 0; i < ruedasMaz.length; i++){
+            mazda.addRueda( new Rueda("Michelin", 18, 10.5));
+        }
 
 
-        Rueda[] ruedasNissan = {new Rueda("Pirelli", 20, 11.5),
-                new Rueda("Pirelli", 20, 11.5),
-                new Rueda("Pirelli", 20, 11.5),
-                new Rueda("Pirelli", 20, 11.5),
-                new Rueda("Pirelli", 20, 11.5),};
+        Rueda[] ruedasNissan = new Rueda[5];
         Persona bea = new Persona("Bea", "Gonzales");
         Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS,
-                new Motor(4.0, TipoMotor.DIESEL), new Estanque(50), bea, ruedasNissan);
+                new Motor(4.0, TipoMotor.DIESEL), new Estanque(50));
+        nissan.setConductor(bea);
         nissan.setTipo(TipoAutomovil.PICKUP);
-        nissan.setRuedas(ruedasNissan);
+        //nissan.setRuedas(ruedasNissan);
+
+        // invocamos metodo addrueda de forma encadenada.
+        nissan.addRueda(new Rueda("Pirelli", 20, 11.5))
+                .addRueda(new Rueda("Pirelli", 20, 11.5))
+                .addRueda(new Rueda("Pirelli", 20, 11.5))
+                .addRueda(new Rueda("Pirelli", 20, 11.5))
+                .addRueda(new Rueda("Pirelli", 20, 11.5));
+
 
 
         Rueda[] ruedasNissan2 = {new Rueda("Pirelli", 20, 11.5),
