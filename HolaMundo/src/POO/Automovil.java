@@ -1,8 +1,5 @@
 package POO;
-
-import javax.swing.text.DefaultStyledDocument;
-
-public class Automovil {
+public class Automovil  implements Comparable<Automovil> {
 
     private int id;
     private String fabricante;
@@ -187,7 +184,7 @@ public class Automovil {
         if(getRuedas() != null){
             detalle += "Ruedas del automovil:";
             for(Rueda r: this.getRuedas()){
-                detalle += "\n" + r.getFabricante()  + ", " + r.getAro() + ", ancho: "+r.getAncho();
+                detalle += "\n" + r.getFabricante()  + ", aro:" + r.getAro() + ", ancho: "+r.getAncho();
             }
         }
 
@@ -242,5 +239,10 @@ public class Automovil {
     @Override
     public String toString() {
         return this.id + " : " + fabricante + " " + modelo;
+    }
+
+    @Override
+    public int compareTo(Automovil a) {
+        return this.conductor.toString().compareTo(a.conductor.toString());
     }
 }

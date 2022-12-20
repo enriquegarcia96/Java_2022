@@ -1,9 +1,5 @@
 package POO;
 
-import java.security.AuthProvider;
-import java.util.Date;
-import java.util.Stack;
-
 public class EjemploAutomovil {
     public static void main(String[] args) {
 
