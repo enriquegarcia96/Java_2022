@@ -1,5 +1,6 @@
 package Facturas.egarcia.appfacturas.modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Factura {
@@ -60,5 +61,55 @@ public class Factura {
     }
 
 
+    public float calcularTotal(){
+        float total = 0.0f;
+        for (ItemFactura item: this.items) {
+            if(item == null){
+                continue;
+            }
+            total += item.calcularImporte();
+        }
+        return  total;
+    }
+
+    public String generarDetalle(){
+        StringBuilder sb = new StringBuilder("Factura N°: ");
+        sb.append(folio)
+                .append("\nCliente: ")
+                .append(this.cliente.getNombre())
+                .append("\t NIF: ")
+                .append(cliente.getNif())
+                .append("\nDescripcion: ")
+                .append(this.descripcion)
+                .append("\n");
+
+
+        SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
+        sb.append("Fecha Emision: ")
+                .append(df.format(this.fecha))
+                .append("\n")
+                .append("\n#\tNombre\t$\tCant.\tTotal\n");
+
+
+        for(ItemFactura item : this.items){
+            if(item == null){
+                continue;
+            }
+
+            sb.append(item.getProducto().getCodigo()).append("\t")
+                    .append(item.getProducto().getNombre())
+                    .append(item.getProducto().getPrecio())
+                    .append(item.getCantidad())
+                    .append("\t")
+                    .append(item.calcularImporte())
+                    .append("\n");
+
+        }
+
+        sb.append("\nGran Total: ")
+                .append(calcularTotal());
+
+        return sb.toString();
+    }
 
 }
