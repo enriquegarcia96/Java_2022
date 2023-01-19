@@ -1,10 +1,5 @@
 package Facturas.egarcia.appfacturas;
-
-import Facturas.egarcia.appfacturas.modelo.Cliente;
-import Facturas.egarcia.appfacturas.modelo.Factura;
-import Facturas.egarcia.appfacturas.modelo.ItemFactura;
-import Facturas.egarcia.appfacturas.modelo.Producto;
-
+import Facturas.egarcia.appfacturas.modelo.*;
 import java.util.Scanner;
 
 public class EjemploFactura {
@@ -21,32 +16,24 @@ public class EjemploFactura {
         Factura factura = new Factura(desc, cliente);
 
         Producto producto;
-        String nombre;
-        float precio;
-        int cantidad;
 
         System.out.println();
 
         for (int i = 0; i < 5; i++) {
             producto = new Producto();
             System.out.print("Ingrese producto n° "+ producto.getCodigo() +  ": ");
-            nombre = s.next();
-            producto.setNombre(nombre);
+            producto.setNombre(s.next());
 
             System.out.print("Ingrese el precio : ");
-            precio = s.nextFloat();
-            producto.setPrecio(precio);
+            producto.setPrecio(s.nextFloat());
 
             System.out.print("ingrese la cantidad: ");
-            cantidad = s.nextInt();
-
-            ItemFactura itemFactura = new ItemFactura(cantidad, producto);
-            factura.addItemFactura(itemFactura);
+            factura.addItemFactura(new ItemFactura(s.nextInt(), producto));
 
             System.out.println();
         }
 
-        System.out.println(factura.generarDetalle());
+        System.out.println(factura);
 
     }
 
