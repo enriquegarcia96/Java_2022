@@ -5,6 +5,9 @@ public class EjemploHerencia {
 
     public static void main(String[] args) {
 
+
+        System.out.println("========== Creando la instancia de la clase Alumno ==========");
+
         Alumno alumno = new Alumno();
         alumno.setNombre("Enrique");
         alumno.setApellido("Garcia");
@@ -13,6 +16,7 @@ public class EjemploHerencia {
         alumno.setNotaMatematica(4.9);
         //((Alumno)alumno).setInstitucion("Froylan turcios"); // para castear la clase
 
+        System.out.println("========== Creando la instancia de la clase Alumno Internacional  ==========");
         AlumnoInternacional alumnoInternacional = new AlumnoInternacional();
         alumnoInternacional.setNombre("Andrea");
         alumnoInternacional.setApellido("Caceres");
@@ -24,11 +28,13 @@ public class EjemploHerencia {
         alumnoInternacional.setNotaHistoria(5.8);
         alumnoInternacional.setNotaMatematica(6.5);
 
+        System.out.println("========== Creando la instancia de la clase Profesor ==========");
         Profesor profesor = new Profesor();
         profesor.setNombre("Omar");
         profesor.setApellido("Carlos");
         profesor.setAsignatura("Programacion");
 
+        System.out.println("========== Creando - ==========");
         System.out.println(alumno.getNombre() + "  "  +  alumno.getApellido()+  "  "  +
                 alumno.getInstitucion());
 

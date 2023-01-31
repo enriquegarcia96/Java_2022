@@ -1,5 +1,7 @@
 package poo_herencia;
 
+import java.security.PublicKey;
+
 public class Persona {
 
     private String nombre;
@@ -7,6 +9,19 @@ public class Persona {
     private int edad;
     private String email;
 
+    public Persona(){
+        System.out.println("Persona: inicializando contructor");
+    }
+
+    public Persona(String nombre, String apellido){
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+    public Persona(String nombre, String apellido, int edad){
+        this(nombre, apellido);
+        this.edad = edad;
+    }
 
     public String getNombre() {
         return nombre;
