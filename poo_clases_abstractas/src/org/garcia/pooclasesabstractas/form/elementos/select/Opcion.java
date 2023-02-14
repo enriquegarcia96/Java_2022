@@ -40,6 +40,7 @@ public class Opcion {
 
 
     public Opcion setSelected() {
+        this.selected = true;
         return this ;
     }
 }
