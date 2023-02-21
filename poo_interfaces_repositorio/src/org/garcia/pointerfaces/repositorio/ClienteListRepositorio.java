@@ -1,5 +1,4 @@
 package org.garcia.pointerfaces.repositorio;
-import jdk.incubator.foreign.CLinker;
 import org.garcia.pointerfaces.modelo.Cliente;
 
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ public class ClienteListRepositorio implements Crudrepositorio,
     public Cliente porId(Integer id) {
         Cliente resultado = null;
         for(Cliente cli : dataSource){
-            if(cli.getId().equals(id)){
+            if(cli.getId() != null && cli.getId().equals(id)){
                 resultado = cli;
                 break;
             }
