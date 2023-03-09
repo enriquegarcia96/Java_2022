@@ -3,22 +3,9 @@ package org.garcia.pointerfaces.repositorio;
 import org.garcia.pointerfaces.modelo.Cliente;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class ClienteListRepositorio implements OrdenablePaginableCrudRepositorio {
-
-    private List<Cliente> dataSource;
-
-
-    public ClienteListRepositorio() {
-        this.dataSource = new ArrayList<>();
-    }
-
-    @Override
-    public List<Cliente> listar() {
-        return dataSource;
-    }
+public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente> {
 
     @Override
     public Cliente porId(Integer id) {
@@ -33,26 +20,16 @@ public class ClienteListRepositorio implements OrdenablePaginableCrudRepositorio
     }
 
     @Override
-    public void crear(Cliente cliente) {
-        this.dataSource.add(cliente);
-    }
-
-    @Override
     public void editar(Cliente cliente) {
         Cliente c = this.porId(cliente.getId());
         c.setNombre(cliente.getNombre());
         c.setApellido(cliente.getApellido());
     }
 
-    @Override
-    public void eliminar(Integer id) {
-        Cliente c = this.porId(id);
-        this.dataSource.remove(id);
-    }
 
     @Override
     public List<Cliente> listar(String campo, Direccion dir) {
-        // creo una una lista para NO afectar al original
+        // creo una lista para NO afectar al original
         List<Cliente> listaOrdenada = new ArrayList<>(this.dataSource);
 
         listaOrdenada.sort((Cliente a, Cliente b) -> {
@@ -68,10 +45,6 @@ public class ClienteListRepositorio implements OrdenablePaginableCrudRepositorio
         return listaOrdenada;
     }
 
-    @Override
-    public List<Cliente> listar(int desde, int hasta) {
-        return dataSource.subList(desde, hasta);
-    }
 
     static int ordenar(String campo, Cliente a, Cliente b) {
         int resultado = 0;
@@ -83,8 +56,4 @@ public class ClienteListRepositorio implements OrdenablePaginableCrudRepositorio
         return resultado;
     }
 
-    @Override
-    public int total() {
-        return this.dataSource.size();
-    }
 }

@@ -1,14 +1,11 @@
 package org.garcia.pointerfaces.repositorio;
-
-import org.garcia.pointerfaces.modelo.Cliente;
-
 import java.util.List;
 
-public interface Crudrepositorio {
+public interface Crudrepositorio<T> {
 
-    List<Cliente> listar();
-    Cliente porId(Integer id);
-    void crear(Cliente cliente);
-    void editar(Cliente cliente);
+    List<T> listar();
+    T porId(Integer id);
+    void crear(T cliente);
+    void editar(T cliente);
     void eliminar(Integer id);
 }

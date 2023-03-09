@@ -8,8 +8,7 @@ abstract public class Mamifero {
     public Mamifero(
             String habitat, String nombreCientifico,
             float altura, float largo, float peso
-    )
-    {
+    ) {
         this.habitat = habitat;
         this.nombreCientifico = nombreCientifico;
         this.altura = altura;
@@ -17,15 +16,32 @@ abstract public class Mamifero {
         this.peso = peso;
     }
 
-    abstract public String getHabitat();
-    abstract public String getNombreCientifico();
-    abstract public float getAltura();
-    abstract public float getLargo();
-    abstract public float getPeso();
+    public String getHabitat(){
+        return habitat;
+    }
+
+    public String getNombreCientifico(){
+        return  nombreCientifico;
+    }
+
+    public float getAltura(){
+        return altura;
+    }
+
+    public float getLargo(){
+        return largo;
+    }
+
+    public float getPeso(){
+        return peso;
+    }
 
 
     abstract public String comer();
+
     abstract public String dormir();
+
     abstract public String correr();
+
     abstract public String comunicarse();
 }

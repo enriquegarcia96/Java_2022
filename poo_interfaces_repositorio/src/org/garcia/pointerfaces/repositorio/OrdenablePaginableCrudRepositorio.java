@@ -1,3 +1,3 @@
 package org.garcia.pointerfaces.repositorio;
-public interface OrdenablePaginableCrudRepositorio extends OrdenableRepositorio,
-                                PaginableRepositorio, Crudrepositorio, ContableRepositorio{ }
+public interface OrdenablePaginableCrudRepositorio<T> extends OrdenableRepositorio<T>,
+                                PaginableRepositorio<T>, Crudrepositorio<T>, ContableRepositorio{ }
